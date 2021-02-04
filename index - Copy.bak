@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	        <title>185217</title>
+	        <link rel="shortcut icon" type="image/png" href="icons/favicon_01.png"/>
+	        <link rel="stylesheet" type="text/css" href="style.css">
+	        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	        <script type="text/javascript">
+		        $(document).ready(function() {
+			$('.button').click(function(e) {
+				e.preventDefault();
+				setContent($(this));
+			});
+
+			$('.button.active').length && setContent($('.button.active'));
+
+			function setContent($el) {
+				$('.button').removeClass('active');
+				$('.box').hide();
+				$el.addClass('active');
+				$($el.data('rel')).show();
+			}
+
+			function changeBg() {
+				var now = new Date();
+				var n = now.getHours();
+				
+				if ( n >= 12 && n <= 17 ) {
+				       	picture = "url('background/background01.jpg')";
+					color1 = "#EE7546";
+					color2 = "#CA6769";
+					message=""
+				} else if ( n >= 0  && n <= 11) {
+					picture = "url('background/background02.jpg')";
+					color1 = "#557780";
+					color2 = "#2CC990";
+					message=" "
+				} else if ( n >= 18 && n <= 24 ) {
+					picture = "url('background/background03.jpg')";
+					color1 = "#444444";
+					color2 = "#5A5A5A";
+					message=" "
+				} 
+				document.getElementById("container").style.background = picture;
+				document.getElementById("border").style.background = color1;
+				document.getElementById('box1').style.color = document.getElementById('box2').style.color = document.getElementById('box3').style.color = color2;
+				document.getElementById("details").style.background = color2;
+				document.getElementById("message").style.textShadow = '5px 5px ' + color1;
+				document.getElementById("message").innerHTML = message;
+			 }
+			 changeBg();
+		        });
+	        </script>
+	</head>
+	<body>
+	        	<div id="container">
+		              <div class="sidebar">
+		                              <div id="border"></div>
+		                              <button id="first-btn" class="button active" data-rel="#box1">01</button>
+			                              <div class="box" id="box1">
+			                                	<h1>Fumino or Kirisu gotta win now</h1>
+						<a href="https://nyaa.si/">nya</a>
+						<a href="https://www.reddit.com/r/anime/">garbage weeb discussion</a>
+						<a href="https://www.reddit.com/r/Android/">android stuff</a>
+						<a href="https://www.reddit.com/r/buildapcsales/new/">hard drive sales</a>
+						<a href="https://www.reddit.com/r/grandorder/">eff gee oh</a>
+						<a href="https://www.reddit.com/r/fatestaynight/">fate stay night</a>
+						<a href="https://www.reddit.com/r/arknights/">rhodes island</a>
+						<a href="https://www.reddit.com/r/Genshin_Impact/">genshin impact</a>
+						<a href="https://subsplease.org/">subplease</a>
+						<a href="https://www.reddit.com/r/hentaimemes/">m</a>
+			                              </div>
+		                              <button id="second-btn" class="button" data-rel="#box2">02</button>
+			                              <div class="box" id="box2">
+			                                           <h1>extra filler stuff</h1>
+				                            <a href="https://www.reddit.com/r/hentai/">it's actually hentai now</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="http://www.pixiv.net/">actually pixiv</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+			                            </div>
+		                            <button id="third-btn" class="button" data-rel="#box3">03</button>
+			                            <div class="box" id="box3">
+			                                           <h1>actually useless</h1>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href="https://www.reddit.com/">filler</a>
+				                            <a href=""></a>
+			                              </div>	                            
+		             	</div>
+	                           <div class="form">
+	                           		<input  id="searchbox" name="q" type="text" autocomplete="off" class="cleardefault" maxlength="100"   placeholder="search engine ..." size="17" autofocus="autofocus" />
+	                           		<input type="submit" id="image-button" value=""></input>
+	                           </div>
+			<div id="details">
+				<div id="weather">
+					<h2 id="description"></h2>
+					<h3 id="temp_curr"></h3>
+				</div> 
+			</div>
+			<div id="message"></div>
+	        	</div>
+	</body>
+	<script type="text/javascript" src="js/search.js"></script>
+  	<script src="js/weather.js"></script>
+</html>
